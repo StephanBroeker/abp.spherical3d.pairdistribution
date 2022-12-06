@@ -79,10 +79,11 @@ def h(x, u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13, u14, u15,
         u16, u17, u18, u19, u20):
     """Function h for second fitting procedure."""
     dens, Pe = x
-    return u1 /Pe + u2 /sqrt(Pe) + u3  + u4 *sqrt(Pe) + u5 *Pe + \
-          (u6 /Pe + u7 /sqrt(Pe) + u8  + u9 *sqrt(Pe) + u10*Pe)*dens + \
-          (u11/Pe + u12/sqrt(Pe) + u13 + u14*sqrt(Pe) + u15*Pe)*dens**2 +  \
-          (u16/Pe + u17/sqrt(Pe) + u18 + u19*sqrt(Pe) + u20*Pe)*dens**3
+    return \
+        (u1 /Pe + u2 /sqrt(Pe) + u3  + u4 *sqrt(Pe) + u5 *Pe) + \
+        (u6 /Pe + u7 /sqrt(Pe) + u8  + u9 *sqrt(Pe) + u10*Pe)*dens + \
+        (u11/Pe + u12/sqrt(Pe) + u13 + u14*sqrt(Pe) + u15*Pe)*dens**2 +  \
+        (u16/Pe + u17/sqrt(Pe) + u18 + u19*sqrt(Pe) + u20*Pe)*dens**3
 
 
 PARAMETERFITFUNCS = {

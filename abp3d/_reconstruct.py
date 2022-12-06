@@ -109,10 +109,10 @@ def reconstruct_gUprime(
 
     # Allocate array for -gU'
     if len(np.shape(the1)) == 3 and len(np.shape(the2)) == 3 and \
-       len(np.shape(phi2)) == 3:
+            len(np.shape(phi2)) == 3:
         pass
     elif len(np.shape(the1)) in [0, 1] and len(np.shape(the2)) in [0, 1] and \
-         len(np.shape(phi2)) in [0, 1]:
+            len(np.shape(phi2)) in [0, 1]:
         the1, the2, phi2 = np.meshgrid(the1, the2, phi2, indexing='ij')
     else:
         print("""I dont know how to interpret the input of the1, the2 and phi2.\n
