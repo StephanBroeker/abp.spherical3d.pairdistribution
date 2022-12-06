@@ -9,8 +9,9 @@ import abp3d
 # -- Parse args --
 
 parser = argparse.ArgumentParser(
-    description=r"""Display the pair distribution function for a given particle
-        distance, Peclet number and packing density and one fixed angle at a certain value.
+    description=r"""Display the pair distribution function for a given
+        particle distance, Peclet number and packing density and
+        one fixed angle at a certain value.
         The default values are the same as in Fig. 3 of the accompanying
         article by S. Broeker and R. Wittkowski.
         """)
@@ -28,7 +29,8 @@ parser.add_argument(
     choices=["the1", "the2", "phi2"],
     help="The angle to be fixed (default: 'the1')")
 parser.add_argument(
-    "-avd", metavar="value_fixed_angle_degree", dest="value_fixed_angle_degree",
+    "-avd", metavar="value_fixed_angle_degree",
+    dest="value_fixed_angle_degree",
     type=float, default=0,
     help="Value of the fixed angle in degree(default: 0)")
 parser.add_argument(
@@ -72,11 +74,12 @@ g = -gU/abp3d.getUprime(args.dist)
 if args.value_fixed_angle_degree == 0:
     shifter = np.pi/180
     angle_index = round(
-        (((args.value_fixed_angle_rad+shifter) % (2*np.pi))-shifter)*180/2/np.pi)
+     (((args.value_fixed_angle_rad+shifter) % (2*np.pi))-shifter)*180/2/np.pi)
     angle_value_string = str(args.value_fixed_angle_rad)
 else:
     angle_index = round((((args.value_fixed_angle_degree+1) % 360)-1)/2)
-    angle_value_string = "$" + str(args.value_fixed_angle_degree) + "^\circ$"
+    angle_value_string = "$" + str(args.value_fixed_angle_degree) \
+                             + "^\circ$"
 
 if args.fixed_angle == "the1":
     g = g[angle_index, :, :]
@@ -104,7 +107,7 @@ fig, ax = plt.subplots(1)
 
 g = np.roll(g, 90, 0)
 cax = ax.imshow(g.T, cmap="inferno", origin="lower",
-                extent=(0, g.shape[0], 0, g.shape[0]))
+                extent=(0, g.shape[0], 0, g.shape[0]), vmin=0)
 cbar = fig.colorbar(cax)
 
 cbar.set_label("$g$")
