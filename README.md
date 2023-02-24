@@ -3,7 +3,7 @@ Supplementary materials
 This folder contains supplementary materials for the article
 
 *S. Bröker and R. Wittkowski, Pair-distribution function of
-active Brownian particles in three spatial dimensions, [TODO: arXiv link] (2019)*
+active Brownian particles in three spatial dimensions, [TODO: arXiv link] (2023)*
 
 Contents
 --------
