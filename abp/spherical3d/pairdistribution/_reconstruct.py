@@ -83,7 +83,7 @@ def reconstruct_gUprime(
 
     Args:
         r (float or array_like): Distance(s) at which $-gU'$ will be calculated
-        the1, the2, phi2 (float, array_like or meshgrid of all):
+        the1, the2, phi2 (float, array_like or meshgrids for all three):
             Positional and orientational angles at which $-gU'$ will be calculated
         Phi, Pe (float): Packing density and Peclet number for which $-gU'$ will be calculated
         params_alpha, params_beta (dict):
@@ -153,7 +153,7 @@ def reconstruct_gUprime_vectors(
     distances and orientation of the particles and their connecting vector.
 
     Args:
-        r (float): Distance(s) at which $-gU'$ will be calculated
+        r (float or array_like): Distance(s) at which $-gU'$ will be calculated
         u_1, u_2, u_d (array-like, dimension 3):
             Normalized orientation vectors of the particles and
             their connecting vector
