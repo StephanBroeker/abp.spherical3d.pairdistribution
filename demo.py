@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
 
-import abp3d
+import abp.spherical3d.pairdistribution as abp3dpdf
 
 # -- Parse args --
 
@@ -63,11 +63,11 @@ phi2 = np.linspace(0, 2*np.pi, resolution, endpoint=False)
 r = args.dist  # Just take a single distance
 the1, the2, phi2 = np.meshgrid(the1, the2, phi2, indexing='ij')
 # Calculate -gU'
-gU = abp3d.reconstruct_gUprime(r, the1, the2, phi2, args.Phi, args.peclet)[0]
+gU = abp3dpdf.reconstruct_gUprime(r, the1, the2, phi2, args.Phi, args.peclet)[0]
 
 
 # Divide by U' to obtain the pair-distribution function g
-g = -gU/abp3d.getUprime(args.dist)
+g = -gU/abp3dpdf.getUprime(args.dist)
 
 # g is three dimensional; Depending on the initial chosen angel g is now
 # reduced to the expected configuration

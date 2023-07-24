@@ -8,7 +8,7 @@ active Brownian spheres in three spatial dimensions: simulation results and anal
 
 Contents
 --------
-* `abp3d/`: Python module for simplified access to the fit parameters of the
+* `abp/spherical3d/pairdistribution`: Python module for simplified access to the fit parameters of the
 Fourier coefficients described in the article as well as routines for
 reconstruction of the product of the pair distribution function and the
 potential derivative. See below for installation instructions.

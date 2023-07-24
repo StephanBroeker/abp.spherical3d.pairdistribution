@@ -3,7 +3,7 @@
 import os.path
 import numpy as np
 
-from abp3d.fitfuncs import FOURIERFITFUNCS, PARAMETERFITFUNCS
+from .fitfuncs import FOURIERFITFUNCS, PARAMETERFITFUNCS
 
 __all__ = ["loadParameterFile", "reconstruct_gUprime",
            "getUprime", "reconstruct_gUprime_vectors"]
