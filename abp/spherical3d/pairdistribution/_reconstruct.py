@@ -78,7 +78,6 @@ def loadDefaultParameterFile():
 
 def reconstruct_gUprime(
         r, the1, the2, phi2, Phi, Pe, params_alpha=None, params_beta=None):
-    #    r, phi1, phi2, phi0, Pe, params_alpha=None, params_beta=None):
     r"""Returns an approximation for $-gU'$ in a given range of particle
     distances and positional and orientational angles.
 
@@ -181,7 +180,7 @@ def reconstruct_gUprime_vectors(
     the1 = np.arccos(u1_ud)
     the2 = np.arccos(u1_u2)
 
-    # for certain configurations of u1 and u2, phi2 can be chosen arbitrarly
+    # for certain configurations of u1 and u2, phi2 can be chosen arbitrarily
     limit = np.cos(np.pi/180)
     if abs(u1_u2) > limit or abs(u1_ud) > limit:
         phi2 = 0.0

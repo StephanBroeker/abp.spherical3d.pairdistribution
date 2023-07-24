@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(
         particle distance, Peclet number and packing density and
         one fixed angle at a certain value.
         The default values are the same as in Fig. 3 of the accompanying
-        article by S. Broeker and R. Wittkowski.
+        article by S. Broeker, M. te Vrugt, J. Jeggle and R. Wittkowski.
         """,
     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument(
@@ -70,7 +70,7 @@ gU = abp3dpdf.reconstruct_gUprime(r, the1, the2, phi2, args.Phi, args.peclet)[0]
 # Divide by U' to obtain the pair-distribution function g
 g = -gU/abp3dpdf.getUprime(args.dist)
 
-# g is three dimensional; Depending on the initial chosen angel g is now
+# g is three dimensional; Depending on the initial chosen angle g is now
 # reduced to the expected configuration
 if args.value_fixed_angle_degree == 0:
     shifter = np.pi/180
