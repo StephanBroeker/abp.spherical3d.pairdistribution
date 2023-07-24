@@ -14,25 +14,26 @@ parser = argparse.ArgumentParser(
         one fixed angle at a certain value.
         The default values are the same as in Fig. 3 of the accompanying
         article by S. Broeker and R. Wittkowski.
-        """)
+        """,
+    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument(
     "-r", metavar="dist", dest="dist", type=float, default=1.0,
-    help="Particle distance in multiples of sigma (default: 1)")
+    help="Particle distance in multiples of sigma")
 parser.add_argument(
     "-d", metavar="Phi", dest="Phi", type=float, default=0.2,
-    help="Packing density (default: 0.2)")
+    help="Packing density")
 parser.add_argument(
     "-p", metavar="peclet", dest="peclet", type=float, default=100.0,
-    help="Peclet number (default: 100)")
+    help="Peclet number")
 parser.add_argument(
     "-a", metavar="fixed_angle", dest="fixed_angle",  default="the1",
     choices=["the1", "the2", "phi2"],
-    help="The angle to be fixed (default: 'the1')")
+    help="The angle to be fixed")
 parser.add_argument(
     "-avd", metavar="value_fixed_angle_degree",
     dest="value_fixed_angle_degree",
     type=float, default=0,
-    help="Value of the fixed angle in degree(default: 0)")
+    help="Value of the fixed angle in degree")
 parser.add_argument(
     "-avr", metavar="value_fixed_angle_rad", dest="value_fixed_angle_rad",
     type=float, default=0,
