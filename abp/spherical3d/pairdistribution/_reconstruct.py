@@ -25,16 +25,14 @@ EPSILON, SIGMA = 1, 1
 def loadParameterFile(filepath):
     r"""Load a parameter CSV file from a given path.
 
-    Parameters
-    ----------
-    path: str
-        Path to CSV file.
+    Args:
+        path (str):
+            Path to CSV file.
 
-    Returns
-    -------
-    params_alpha, params_beta: dict
-        Dictionaries containing all fit parameters for both alpha and beta
-        Fourier coefficients.
+    Returns:
+        **params_alpha, params_beta (dict):**
+            Dictionaries containing all fit parameters for both alpha and beta
+            Fourier coefficients.
     """
     params_alpha = {}
     params_beta = {}
@@ -84,17 +82,14 @@ def reconstruct_gUprime(
     r"""Returns an approximation for -gU' in a given range of particle
     distances and positional and orientational angles.
 
-    Parameters
-    ----------
-    r: float or array_like
-        Distance(s) at which -gU' will be calculated
-    the1, the2, phi2: float, array_like or meshgrid of all
-        Positional and orientational angles at which -gU' will be calculated
-    Phi, Pe: float
-        Packing density and Peclet number for which -gU' will be calculated
-    params_alpha, params_beta: dict
-        Parameter dictionary containing all fit parameters necessary for
-        reconstruction. If not set, the included default values will be used.
+    Args:
+        r (float or array_like): Distance(s) at which -gU' will be calculated
+        the1, the2, phi2 (float, array_like or meshgrid of all):
+            Positional and orientational angles at which -gU' will be calculated
+        Phi, Pe (float): Packing density and Peclet number for which -gU' will be calculated
+        params_alpha, params_beta (dict):
+            Parameter dictionary containing all fit parameters necessary for
+            reconstruction. If not set, the included default values will be used.
     """
     # If params are not set: load default
     if not params_alpha or not params_beta:
@@ -157,19 +152,18 @@ def reconstruct_gUprime_vectors(
      r, u_1, u_2, u_d, Phi, Pe, params_alpha=None, params_beta=None):
     r"""Returns an approximation for -gU' in a given range of particle
     distances and orientation of the particles and their connecting vector.
-    Parameters
-    ----------
-    r: float
-        Distance(s) at which -gU' will be calculated
-    u_1, u_2, u_d: array-like, dimension 3
-        Normalized orientation vectors of the particles and
-        their connecting vector
-    Phi, Pe: float
-        Packing density and Peclet number for which -gU' will
-        be calculated
-    params_alpha, params_beta: dict
-        Parameter dictionary containing all fit parameters necessary for
-        reconstruction. If not set, the included default values will be used.
+
+    Args:
+        r (float): Distance(s) at which -gU' will be calculated
+        u_1, u_2, u_d (array-like, dimension 3):
+            Normalized orientation vectors of the particles and
+            their connecting vector
+        Phi, Pe (float):
+            Packing density and Peclet number for which -gU' will
+            be calculated
+        params_alpha, params_beta (dict):
+            Parameter dictionary containing all fit parameters necessary for
+            reconstruction. If not set, the included default values will be used.
     """
     # in case u_ are lists, this changes them to arrays
     # u_1 = np.array([u_1[0], u_1[1],u_1[2]])
@@ -208,9 +202,8 @@ def getUprime(r):
     energy epsilon. This function uses values consistent with the simulations
     described in the accompanying article.
 
-    Parameters
-    ----------
-    r: float or array_like
-        Distance(s) at which the potential derivative will be calculated.
+    Args:
+        r (float or array_like):
+            Distance(s) at which the potential derivative will be calculated.
     """
     return 24*EPSILON/SIGMA * (-2*(SIGMA/r)**13 + (SIGMA/r)**7)
