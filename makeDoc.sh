@@ -11,4 +11,4 @@ else
 fi
 
 rm -rf ./doc
-PYTHONPATH=$(pwd) pdoc -d google -o doc abp.spherical3d.pairdistribution
+PYTHONPATH=$(pwd) pdoc --math -d google -o doc abp.spherical3d.pairdistribution
