@@ -5,7 +5,7 @@ This folder contains supplementary software for the article
 *S. Bröker, M. te Vrugt, J. Jeggle, J. Stenhammar and R. Wittkowski, Pair-distribution function of
 active Brownian spheres in three spatial dimensions: simulation results and analytical represantation, [TODO: arXiv link] (2023)*
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8177268.svg)](https://doi.org/10.5281/zenodo.8177268)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8177216.svg)](https://doi.org/10.5281/zenodo.8177216)
 
 Contents
 --------
