@@ -1,9 +1,10 @@
-Supplementary materials
+Python module abp.spherical3d.pairdistribution
 =======================
-This folder contains supplementary materials for the article
+This folder contains supplementary software for the article
 
-*S. Bröker and R. Wittkowski, Pair-distribution function of
-active Brownian particles in three spatial dimensions, [TODO: arXiv link] (2023)*
+*S. Bröker, M. te Vrugt, J. Jeggle, J. Stenhammar and R. Wittkowski, Pair-distribution function of
+active Brownian spheres in three spatial dimensions: simulation results and analytical represantation, [TODO: arXiv link] (2023)*
+[TODO: Zenodo Link]
 
 Contents
 --------
