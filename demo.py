@@ -13,40 +13,40 @@ parser = argparse.ArgumentParser(
         particle distance, Peclet number and packing density and
         one fixed angle at a certain value.
         The default values are the same as in Fig. 3 of the accompanying
-        article by S. Broeker and R. Wittkowski.
-        """)
+        article by S. Broeker, M. te Vrugt, J. Jeggle and R. Wittkowski.
+        """,
+    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument(
     "-r", metavar="dist", dest="dist", type=float, default=1.0,
-    help="Particle distance in multiples of sigma (default: 1)")
+    help="Particle distance in multiples of sigma")
 parser.add_argument(
     "-d", metavar="Phi", dest="Phi", type=float, default=0.2,
-    help="Packing density (default: 0.2)")
+    help="Packing density")
 parser.add_argument(
     "-p", metavar="peclet", dest="peclet", type=float, default=100.0,
-    help="Peclet number (default: 100)")
+    help="Peclet number")
 parser.add_argument(
     "-a", metavar="fixed_angle", dest="fixed_angle",  default="the1",
     choices=["the1", "the2", "phi2"],
-    help="The angle to be fixed (default: 'the1')")
-parser.add_argument(
-    "-avd", metavar="value_fixed_angle_degree",
+    help="The angle to be fixed")
+group = parser.add_mutually_exclusive_group()
+group.add_argument(
+    "--angle-degrees", metavar="value_fixed_angle_degree",
     dest="value_fixed_angle_degree",
     type=float, default=0,
-    help="Value of the fixed angle in degree(default: 0)")
-parser.add_argument(
-    "-avr", metavar="value_fixed_angle_rad", dest="value_fixed_angle_rad",
+    help="Value of the fixed angle in degree")
+group.add_argument(
+    "--angle-radians", metavar="value_fixed_angle_rad", dest="value_fixed_angle_rad",
     type=float, default=0,
     help="Value of the fixed angle in rad(default: 0)")
 
 args = parser.parse_args()
 
 # Validate args
-
 r_min = 0.7775
 r_max = 2**(1/6)
 if args.dist < r_min or args.dist > r_max:
     print("Warning: Distance is outside of approximation bounds!")
-
 if args.peclet < 0:
     print("Warning: Unphysical argument for Peclet number")
 if args.Phi < 0 or args.Phi > 1:
@@ -54,55 +54,64 @@ if args.Phi < 0 or args.Phi > 1:
 
 # -- Calculate pair distribution function --
 
-# Generate arrays for r, the1, the2 and phi2
+# Unify angle parameters to one angle in radians
+if args.value_fixed_angle_rad != 0:
+    fixed_angle_rad = args.value_fixed_angle_rad
+    angle_value_string = str(args.value_fixed_angle_rad)
+elif args.value_fixed_angle_degree != 0:
+    fixed_angle_rad = np.deg2rad(args.value_fixed_angle_degree)
+    angle_value_string = rf"${args.value_fixed_angle_degree}^\circ$"
+else:
+    fixed_angle_rad = 0.0
+    angle_value_string = "0"
 
-resolution = 180
-the1 = np.linspace(0, 2*np.pi, resolution, endpoint=False)
-the2 = np.linspace(0, 2*np.pi, resolution, endpoint=False)
-phi2 = np.linspace(0, 2*np.pi, resolution, endpoint=False)
-r = args.dist  # Just take a single distance
-the1, the2, phi2 = np.meshgrid(the1, the2, phi2, indexing='ij')
-# Calculate -gU'
-gU = abp3dpdf.reconstruct_gUprime(r, the1, the2, phi2, args.Phi, args.peclet)[0]
+# Generate arrays for the1, the2 and phi2
+RESOLUTION = 180
+the1 = np.linspace(0, 2*np.pi, RESOLUTION, endpoint=False)
+the2 = np.linspace(0, 2*np.pi, RESOLUTION, endpoint=False)
+phi2 = np.linspace(0, 2*np.pi, RESOLUTION, endpoint=False)
 
+# Replace array for fixed angle
+if args.fixed_angle == "the1":
+    the1 = fixed_angle_rad
+if args.fixed_angle == "the2":
+    the2 = fixed_angle_rad
+if args.fixed_angle == "phi2":
+    phi2 = fixed_angle_rad
+
+# Just take a single distance
+r = args.dist  
+
+# Calculate -gU' and squeeze to 2D array
+gU = abp3dpdf.reconstruct_gUprime(r, the1, the2, phi2, args.Phi, args.peclet)
+gU = np.squeeze(gU)
 
 # Divide by U' to obtain the pair-distribution function g
 g = -gU/abp3dpdf.getUprime(args.dist)
 
-# g is three dimensional; Depending on the initial chosen angel g is now
-# reduced to the expected configuration
-if args.value_fixed_angle_degree == 0:
-    shifter = np.pi/180
-    angle_index = round(
-     (((args.value_fixed_angle_rad+shifter) % (2*np.pi))-shifter)*180/2/np.pi)
-    angle_value_string = str(args.value_fixed_angle_rad)
-else:
-    angle_index = round((((args.value_fixed_angle_degree+1) % 360)-1)/2)
-    angle_value_string = "$" + str(args.value_fixed_angle_degree) \
-                             + "^\circ$"
+# -- Plotting code --
 
+# Set plot labels
 if args.fixed_angle == "the1":
-    g = g[angle_index, :, :]
+    # g = g[angle_index, :, :]
     xlabel = r"$\theta_2$"
     ylabel = r"$\phi_2$"
     caption = r"$\theta_1$"
 
 elif args.fixed_angle == "the2":
-    g = g[:, angle_index, :]
+    # g = g[:, angle_index, :]
     xlabel = r"$\theta_1$"
     ylabel = r"$\phi_2$"
     caption = r"$\theta_2$"
 elif args.fixed_angle == "phi2":
-    g = g[:, :, angle_index]
+    # g = g[:, :, angle_index]
     xlabel = r"$\theta_1$"
     ylabel = r"$\theta_2$"
     caption = r"$\phi_2$"
 
 caption = caption + " = "+angle_value_string
 
-
-# -- Plotting code --
-
+# Create plot
 fig, ax = plt.subplots(1)
 
 g = np.roll(g, 90, 0)
