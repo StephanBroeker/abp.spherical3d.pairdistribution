@@ -93,18 +93,15 @@ g = -gU/abp3dpdf.getUprime(args.dist)
 
 # Set plot labels
 if args.fixed_angle == "the1":
-    # g = g[angle_index, :, :]
     xlabel = r"$\theta_2$"
     ylabel = r"$\phi_2$"
     caption = r"$\theta_1$"
 
 elif args.fixed_angle == "the2":
-    # g = g[:, angle_index, :]
     xlabel = r"$\theta_1$"
     ylabel = r"$\phi_2$"
     caption = r"$\theta_2$"
 elif args.fixed_angle == "phi2":
-    # g = g[:, :, angle_index]
     xlabel = r"$\theta_1$"
     ylabel = r"$\theta_2$"
     caption = r"$\phi_2$"
