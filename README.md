@@ -13,7 +13,7 @@ Contents
 Fourier coefficients described in the article as well as routines for
 reconstruction of the product of the pair distribution function and the
 potential derivative. See below for installation instructions.
-The abp3d module includes:
+The abp module includes:
 -loadParameterFile         
     this function loads the CSV file from a given path
 -reconstruct_gUprime
@@ -24,9 +24,9 @@ The abp3d module includes:
     distances and orientation of the particles and their connecting vector
 -getUprime
     Calculate derivative of potential U with respect to r                
-* `demo.py`: Demo code for the `abp3d` module. See `python3 demo.py -h` for more
+* `demo.py`: Demo code for the `abp` module. See `python3 demo.py -h` for more
 information.
-* `doc/`: HTML documentation for the `abp3d` module.
+* `doc/`: HTML documentation for the `abp` module.
 * `fitparams.csv`: Spreadsheet file containing all fit parameters for the
 Fourier coefficients described in the article.
 * `README.md`: This file.
@@ -39,7 +39,7 @@ the supplied code:
 * NumPy
 * Matplotlib (needed for the demo script)
 
-To install the Python module, copy or link the folder `abp3d` to a location in
+To install the Python module, copy or link the folder `abp` to a location in
 your Python search path. You can find all locations in your search path by
 running:
 
