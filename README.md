@@ -1,11 +1,18 @@
 Python module abp.spherical3d.pairdistribution
 =======================
-This folder contains supplementary software for the article
-
-*S. Bröker, M. te Vrugt, J. Jeggle, J. Stenhammar and R. Wittkowski, Pair-distribution function of
-active Brownian spheres in three spatial dimensions: simulation results and analytical represantation, [TODO: arXiv link] (2023)*
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8177216.svg)](https://doi.org/10.5281/zenodo.8177216)
+[![Funding provided by DFG Project ID 433682494 - SFB 1459](https://img.shields.io/badge/DFG%20funded-Project%20ID%20433682494%20--%20SFB%201459%20-blue)](https://gepris.dfg.de/gepris/projekt/433682494?context=projekt&task=showDetail&id=433682494&)
+
+
+This folder contains supplementary software for the article
+
+*S. Bröker, M. te Vrugt, J. Jeggle, J. Stenhammar and R. Wittkowski,
+Pair-distribution function of active Brownian spheres in three spatial
+dimensions: simulation results and analytical representation,
+Soft Matter, 20, 224-244, 2024,
+[DOI: 10.1039/D3SM00987D](https://doi.org/10.1039/D3SM00987D)*
+
 
 Contents
 --------

@@ -2,39 +2,86 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: ' abp.spherical3d.pairdistribution'
+title: abp.spherical3d.pairdistribution
 message: >-
-  If you use this software, please cite it using the
-  metadata from this file.
+  If you use this software, please cite both the
+  article from preferred-citation and the software itself.
 type: software
 authors:
   - given-names: Stephan
     family-names: Bröker
     affiliation: >-
       Institut für Theoretische Physik, Center for
-      Soft Nanoscience, Westfälische
-      Wilhelms-Universität Münster, 48149 Münster,
-      Germany
+      Soft Nanoscience, Universität Münster,
+      48149 Münster, Germany
     orcid: 'https://orcid.org/0000-0003-1295-0161'
   - given-names: Julian
     family-names: Jeggle
     affiliation: >-
       Institut für Theoretische Physik, Center for
-      Soft Nanoscience, Westfälische
-      Wilhelms-Universität Münster, 48149 Münster,
-      Germany
+      Soft Nanoscience, Universität Münster,
+      48149 Münster, Germany
     orcid: 'https://orcid.org/0000-0001-7220-6081'
   - given-names: Raphael
     family-names: Wittkowski
     affiliation: >-
       Institut für Theoretische Physik, Center for
-      Soft Nanoscience, Westfälische
-      Wilhelms-Universität Münster, 48149 Münster,
-      Germany
+      Soft Nanoscience, Universität Münster,
+      48149 Münster, Germany
     orcid: 'https://orcid.org/0000-0003-4881-9173'
+version: 1.1.1
+date-released: "2023-07-25"
+license: MIT
+repository-code: https://github.com/StephanBroeker/abp.spherical3d.pairdistribution
+identifiers:
+  - description: This is the collection of archived snapshots of all versions of abp.spherical3d.pairdistribution
+    type: doi
+    value: 10.5281/zenodo.8177216
+  - description: This is the archived snapshot of version 1.1.1 of abp.spherical3d.pairdistribution
+    type: doi
+    value: 10.5281/zenodo.8183663
+  - description: This is the archived snapshot of version 1.1.0 of abp.spherical3d.pairdistribution
+    type: doi
+    value: 10.5281/zenodo.8183554
+  - description: This is the archived snapshot of version 1.0.0 of abp.spherical3d.pairdistribution
+    type: doi
+    value: 10.5281/zenodo.8177325
+  - description: This is the archived snapshot of version 0.1.1 of abp.spherical3d.pairdistribution
+    type: doi
+    value: 10.5281/zenodo.8177268
+  - description: This is the archived snapshot of version 0.1.0 of abp.spherical3d.pairdistribution
+    type: doi
+    value: 10.5281/zenodo.8177217
 keywords:
   - Active Brownian particles
   - pair-distribution
   - pair-correlation
   - analytical approximation
-license: MIT
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Bröker
+      given-names: Stephan
+      orcid: https://orcid.org/0000-0003-1295-0161
+    - family-names: te Vrugt
+      given-names: Michael
+      orcid: https://orcid.org/0000-0002-1139-3925
+    - family-names: Jeggle
+      given-names: Julian
+      orcid: "https://orcid.org/0000-0001-7220-6081"
+    - family-names: Stenhammar
+      given-names: Joakim
+      orcid: "https://orcid.org/0000-0002-7543-5549"
+    - family-names: Wittkowski
+      given-names: Raphael
+      orcid: "https://orcid.org/0000-0003-4881-9173"
+  title: "Pair-distribution function of active Brownian spheres in three spatial dimensions: simulation results and analytical representation"
+  journal: Soft Matter
+  volume: 20
+  issue: 1
+  start: 224
+  end: 244
+  year: 2024
+  identifiers:
+    - type: doi
+      value: 10.1039/D3SM00987D
